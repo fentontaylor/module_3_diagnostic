@@ -1,9 +1,8 @@
 <section class="search-results">
   <h1>Order of the Phoenix Members</h1>
   <h3>House <%= @house %></h3>
-
-  <section class="member-info">
-    <% @members.each do |member|%>
+  <% @members.each do |member|%>
+    <section class="member-info">
       <hr>
       <h4>member.name</h4>
       <ul>
@@ -11,6 +10,6 @@
         <li>Role: <%= member.role %></li>
         <li>Patronus: <%= member.patronus %></li>
       </ul>
-    <% end %>
-  </section>
+    </section>
+  <% end %>
 </section>

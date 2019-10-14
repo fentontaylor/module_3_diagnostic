@@ -6,7 +6,7 @@ require 'rails_helper'
 # And I click "Search For Members"
 # Then I should be on page "/search"
 # Then I should see a total of the number of members for that house. (18 for Griffindor)
-# Then I should see a list of 18 members
+# Then I should see a list of 21 members
 #
 # And for each of the members I should see:
 # - The name of the member
@@ -39,7 +39,7 @@ describe 'As a user' do
       within '.search-results' do
         expect(page).to have_content('Order of the Phoenix Members')
         expect(page).to have_content("House #{house_selection}")
-        expect(page).to have_css('.member-info', count: 18)
+        expect(page).to have_css('.member-info', count: 21)
 
         expect(page).to have_content("#{sirius[:name]}")
         expect(page).to have_content("House: #{sirius[:house]}")
