@@ -19,8 +19,8 @@ class PotterApiService
     conn.get do |req|
       req.url 'characters'
       req.params['key'] = ENV['API_KEY']
-      req.params['house'] = house
       req.params['orderOfThePhoenix'] = true
+      req.params['house'] = house
     end
   end
 end
