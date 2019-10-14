@@ -22,10 +22,6 @@ describe 'As a user' do
       select house_selection, from: :house
       click_button 'Search For Members'
 
-      expect(page).to have_content('Order of the Phoenix Members')
-      expect(page).to have_content("House #{house_selection}")
-      expect(page).to have_css('.member-info', count: 18)
-
       sirius = {
         name: 'Sirius Black',
         role: 'none',
@@ -40,15 +36,21 @@ describe 'As a user' do
         patronus: 'goat'
       }
 
-      expect(page).to have_content("Name: #{sirius[:name]}")
-      expect(page).to have_content("Role: #{sirius[:role]}")
-      expect(page).to have_content("House: #{sirius[:house]}")
-      expect(page).to have_content("Partonus: #{sirius[:patronus]}")
+      within '.search-results' do
+        expect(page).to have_content('Order of the Phoenix Members')
+        expect(page).to have_content("House #{house_selection}")
+        expect(page).to have_css('.member-info', count: 18)
 
-      expect(page).to have_content("Name: #{aberforth[:name]}")
-      expect(page).to have_content("Role: #{aberforth[:role]}")
-      expect(page).to have_content("House: #{aberforth[:house]}")
-      expect(page).to have_content("Partonus: #{aberforth[:patronus]}")
+        expect(page).to have_content("#{sirius[:name]}")
+        expect(page).to have_content("House: #{sirius[:house]}")
+        expect(page).to have_content("Role: #{sirius[:role]}")
+        expect(page).to have_content("Partonus: #{sirius[:patronus]}")
+
+        expect(page).to have_content("#{aberforth[:name]}")
+        expect(page).to have_content("House: #{aberforth[:house]}")
+        expect(page).to have_content("Role: #{aberforth[:role]}")
+        expect(page).to have_content("Partonus: #{aberforth[:patronus]}")
+      end
     end
   end
 end
