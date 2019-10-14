@@ -1,12 +1,7 @@
 class PotterApiService
-  def self.get_members(house)
-    PotterApiService.new.get_members(house)
-  end
-
   def get_members(house)
     response = phoenix_members(house)
-    json = JSON.parse(response.body)
-    json.map {|char| Character.new(char)}
+    JSON.parse(response.body)
   end
 
   private

@@ -6,6 +6,13 @@ class SearchFacade
   end
 
   def members
-    @members ||= PotterApiService.get_members(@house)
+    characters = service.get_members(@house)
+    characters.map {|char| Character.new(char)}
+  end
+
+  private
+
+  def service
+    @service ||= PotterApiService.new
   end
 end
