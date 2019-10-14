@@ -1,15 +1,17 @@
 <section class="search-results">
   <h1>Order of the Phoenix Members</h1>
   <h3>House <%= @facade.house %></h3>
-  <% @facade.members.each do |member|%>
-    <section class="member-info">
-      <hr>
-      <h4><%= member.name %></h4>
-      <ul>
-        <li>House: <%= member.house %></li>
-        <li>Role: <%= member.role %></li>
-        <li>Patronus: <%= member.patronus %></li>
-      </ul>
-    </section>
-  <% end %>
+  <section class="member-info">
+    <% @facade.members.each_with_index do |member, i|%>
+      <div id="member-<%= i + 1 %>">
+        <hr>
+        <h4><%= member.name %></h4>
+        <ul>
+          <li>House: <%= member.house %></li>
+          <li>Role: <%= member.role %></li>
+          <li>Patronus: <%= member.patronus %></li>
+        </ul>
+      </div>
+    <% end %>
+  </section>
 </section>

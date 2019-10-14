@@ -43,17 +43,20 @@ describe 'As a user' do
       within '.search-results' do
         expect(page).to have_content('Order of the Phoenix Members')
         expect(page).to have_content("House #{house_selection}")
-        expect(page).to have_css('.member-info', count: 21)
 
-        expect(page).to have_content("#{sirius[:name]}")
-        expect(page).to have_content("House: #{sirius[:house]}")
-        expect(page).to have_content("Role: #{sirius[:role]}")
-        expect(page).to have_content("Patronus: #{sirius[:patronus]}")
+        within "#member-1" do
+          expect(page).to have_content("#{sirius[:name]}")
+          expect(page).to have_content("House: #{sirius[:house]}")
+          expect(page).to have_content("Role: #{sirius[:role]}")
+          expect(page).to have_content("Patronus: #{sirius[:patronus]}")
+        end
 
-        expect(page).to have_content("#{aberforth[:name]}")
-        expect(page).to have_content("House: #{aberforth[:house]}")
-        expect(page).to have_content("Role: #{aberforth[:role]}")
-        expect(page).to have_content("Patronus: #{aberforth[:patronus]}")
+        within "#member-2" do
+          expect(page).to have_content("#{aberforth[:name]}")
+          expect(page).to have_content("House: #{aberforth[:house]}")
+          expect(page).to have_content("Role: #{aberforth[:role]}")
+          expect(page).to have_content("Patronus: #{aberforth[:patronus]}")
+        end
       end
     end
   end
