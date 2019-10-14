@@ -1,7 +1,7 @@
 <section class="search-results">
   <h1>Order of the Phoenix Members</h1>
-  <h3>House <%= @house %></h3>
-  <% @members.each do |member|%>
+  <h3>House <%= @facade.house %></h3>
+  <% @facade.members.each do |member|%>
     <section class="member-info">
       <hr>
       <h4><%= member.name %></h4>
