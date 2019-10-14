@@ -28,15 +28,27 @@ describe 'As a user' do
 
       sirius = {
         name: 'Sirius Black',
-        role: 'None',
+        role: 'none',
         house: 'Gryffindor',
-        patronus: 'Unknown'
+        patronus: 'unknown'
       }
 
-      dumbledore = {
-        
+      aberforth = {
+        name: "Aberforth Dumbledore",
+        role: "Owner, Hog's Head Inn",
+        house: 'Gryffindor',
+        patronus: 'goat'
       }
-      expect(page).to have_content()
+
+      expect(page).to have_content("Name: #{sirius[:name]}")
+      expect(page).to have_content("Role: #{sirius[:role]}")
+      expect(page).to have_content("House: #{sirius[:house]}")
+      expect(page).to have_content("Partonus: #{sirius[:patronus]}")
+
+      expect(page).to have_content("Name: #{aberforth[:name]}")
+      expect(page).to have_content("Role: #{aberforth[:role]}")
+      expect(page).to have_content("House: #{aberforth[:house]}")
+      expect(page).to have_content("Partonus: #{aberforth[:patronus]}")
     end
   end
 end
